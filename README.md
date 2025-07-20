@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-- **Production**: [https://neo-ventures.vercel.app](https://neo-ventures.vercel.app)
+- **Production**: [https://landing-page-test-woad-six.vercel.app/](https://landing-page-test-woad-six.vercel.app/)
 
 ##  How to Run the Project Locally
 

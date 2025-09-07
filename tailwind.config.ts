@@ -10,6 +10,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			'inter': ['var(--font-inter)', 'sans-serif'],
+  			'bricolage': ['var(--font-bricolage)', 'sans-serif'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

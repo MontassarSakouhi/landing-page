@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 py-16 px-6 bg-gradient-to-br from-slate-100 to-slate-200">
+    <footer className="relative z-10 py-6 px-6 bg-[#F3F4F8] border-t-[1px] border-[#A3AED0]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center"
@@ -14,25 +14,26 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <motion.div
-            className="flex items-center justify-center space-x-3 mb-8"
+            className="flex items-center justify-center space-x-3 mb-4"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
           >
-            <motion.div className="relative" whileHover={{ rotate: 5 }} transition={{ type: "spring", stiffness: 300 }}>
+            <motion.div
+              className="relative"
+              whileHover={{ rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="flex items-center">
-
-                  <img src="/2-1.png"  className={"w-[150px]"} alt=""/>
-
-
+                <img src="/2-1.png" className={"w-[120px]"} alt="" />
               </div>
             </motion.div>
           </motion.div>
 
           <motion.p
-            className="text-slate-600 text-sm"
+            className="text-[#5F6388] text-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -70,5 +71,5 @@ export function Footer() {
         }}
       />
     </footer>
-  )
+  );
 }

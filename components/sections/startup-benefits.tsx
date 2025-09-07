@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { TrendingUp, CreditCard, Settings, Award } from "lucide-react"
-import { motion, type PanInfo } from "framer-motion"
-import { useState } from "react"
+import { Award, CreditCard, Settings, TrendingUp } from "lucide-react";
+import { motion, type PanInfo } from "framer-motion";
+import { useState } from "react";
 
 const benefitsCards = [
   {
@@ -14,39 +14,42 @@ const benefitsCards = [
   {
     icon: CreditCard,
     title: "Access to Banking Services",
-    description: "Offer SNB banking services, financial resources, and seamless technology integration.",
+    description:
+      "Offer SNB banking services, financial resources, and seamless technology integration.",
     color: "teal",
   },
   {
     icon: Settings,
     title: "Operational Support",
-    description: "Tap into SNB's operational capacity and expertise to help startups scale.",
+    description:
+      "Tap into SNB's operational capacity and expertise to help startups scale.",
     color: "teal",
   },
   {
     icon: Award,
     title: "Reputational Gain",
-    description: "Leverage SNB's strong brand to build credibility for startups.",
+    description:
+      "Leverage SNB's strong brand to build credibility for startups.",
     color: "teal",
   },
-]
+];
 
 export function StartupBenefits() {
-  const [benefitsSlide, setBenefitsSlide] = useState(0)
+  const [benefitsSlide, setBenefitsSlide] = useState(0);
 
   const handleBenefitsDragEnd = (event: any, info: PanInfo) => {
-    const offset = info.offset.x
-    const velocity = info.velocity.x
+    const offset = info.offset.x;
+    const velocity = info.velocity.x;
 
     if (offset > 100 || velocity > 500) {
-      setBenefitsSlide((prev) => Math.max(0, prev - 1))
+      setBenefitsSlide((prev) => Math.max(0, prev - 1));
     } else if (offset < -100 || velocity < -500) {
-      setBenefitsSlide((prev) => Math.min(benefitsCards.length - 1, prev + 1))
+      setBenefitsSlide((prev) => Math.min(benefitsCards.length - 1, prev + 1));
     }
-  }
+  };
 
   return (
-    <section className="relative z-10 py-20 px-6 bg-slate-50">
+    <section className="relative z-10 py-20 px-6 bg-[#0C3A43]/10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -56,72 +59,49 @@ export function StartupBenefits() {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#052E37] mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="block">Uniquely Positioned for Your</span>
-            <span className="block">Sustainable Growth</span>
+            <span className="block ">Driving Strategic Value</span>
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl text-teal-500 font-semibold max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-sm text-[#052E37]  max-w-[350px] mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Specific benefits for startups
+            NEOVentures is more than capital, it's a strategic investor fueling
+            your growth story and success
           </motion.p>
         </motion.div>
 
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {benefitsCards.map((card, index) => {
-            const Icon = card.icon
+            const Icon = card.icon;
             return (
               <motion.div
                 key={index}
                 className="group relative"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.15, duration: 0.8 }}
+                transition={{ delay: 0 + index * 0.15, duration: 0.8 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <div className="relative bg-white border border-slate-200 rounded-2xl p-6 h-full shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative bg-white border-[1px] border-[#052E37] rounded-xl p-6 h-full  hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br from-${card.color}-50/50 to-transparent opacity-0 group-hover:opacity-100`}
                     transition={{ duration: 0.3 }}
                   />
 
-                  <motion.div
-                    className="mb-6"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div
-                      className={`w-14 h-14 bg-${card.color}-100 rounded-xl flex items-center justify-center group-hover:bg-${card.color}-200 transition-colors duration-300`}
-                    >
-                      <motion.div
-                        animate={{
-                          rotate: index === 1 ? [0, 360] : 0,
-                          scale: [1, 1.05, 1],
-                        }}
-                        transition={{
-                          rotate: { duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                          scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-                        }}
-                      >
-                        <Icon className={`w-7 h-7 text-${card.color}-600 group-hover:text-white transition-colors duration-300`} />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-
                   <div className="relative z-10">
                     <motion.h3
-                      className="text-xl font-bold text-slate-900 mb-3 group-hover:text-white transition-colors duration-300"
+                      className="text-xl font-bold text-[#052E37] mb-3  transition-colors duration-300"
                       initial={{ opacity: 0.8 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
@@ -131,7 +111,7 @@ export function StartupBenefits() {
                     </motion.h3>
 
                     <motion.p
-                      className="text-slate-600 leading-relaxed text-sm group-hover:text-white transition-colors duration-300"
+                      className="text-slate-600 leading-relaxed text-sm  transition-colors duration-300"
                       initial={{ opacity: 0.8 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
@@ -170,7 +150,7 @@ export function StartupBenefits() {
                   />
                 </div>
               </motion.div>
-            )
+            );
           })}
         </div>
 
@@ -178,48 +158,40 @@ export function StartupBenefits() {
           <motion.div
             className="flex"
             drag="x"
-            dragConstraints={{ left: -(benefitsCards.length - 1) * 280, right: 0 }}
+            dragConstraints={{
+              left: -(benefitsCards.length - 1) * 280,
+              right: 0,
+            }}
             onDragEnd={handleBenefitsDragEnd}
             animate={{ x: -benefitsSlide * 280 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {benefitsCards.map((card, index) => {
-              const Icon = card.icon
-              return (
-                <motion.div
-                  key={index}
-                  className="min-w-[280px] px-3"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm h-full">
-                    <div className="mb-6">
-                      <div className={`w-12 h-12 bg-${card.color}-100 rounded-xl flex items-center justify-center`}>
-                        <motion.div
-                          animate={{
-                            rotate: index === 1 ? [0, 360] : 0,
-                            scale: [1, 1.05, 1],
-                          }}
-                          transition={{
-                            rotate: { duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                            scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-                          }}
-                        >
-                          <Icon className={`w-6 h-6 text-${card.color}-600`} />
-                        </motion.div>
-                      </div>
-                    </div>
+            {benefitsCards.map((card, index) => (
+              <motion.div
+                key={index}
+                className="min-w-[280px] px-3"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative bg-white border-[1px] border-[#052E37] rounded-xl p-6 h-full hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                  <motion.div
+                    className="absolute inset-0 bg-[linear-gradient(135deg,rgba(13,148,136,0.15)_0%,rgba(255,255,255,0)_60%)] opacity-0 group-hover:opacity-100"
+                    transition={{ duration: 0.3 }}
+                  />
 
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-3">{card.title}</h3>
-                      <p className="text-slate-600 leading-relaxed text-sm">{card.description}</p>
-                    </div>
+                  <div className="relative z-10">
+                    <h3 className="text-lg font-bold text-[#052E37] mb-3 transition-colors duration-300">
+                      {card.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-sm transition-colors duration-300">
+                      {card.description}
+                    </p>
                   </div>
-                </motion.div>
-              )
-            })}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
 
           <div className="flex justify-center mt-8 space-x-2">
@@ -227,7 +199,7 @@ export function StartupBenefits() {
               <motion.button
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                  benefitsSlide === index ? "bg-teal-600" : "bg-slate-300"
+                  benefitsSlide === index ? "bg-[#00FFEA]" : "bg-[#00FFEA]/20"
                 }`}
                 onClick={() => setBenefitsSlide(index)}
                 whileHover={{ scale: 1.2 }}
@@ -292,5 +264,5 @@ export function StartupBenefits() {
         }}
       />
     </section>
-  )
+  );
 }

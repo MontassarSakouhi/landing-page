@@ -7,7 +7,7 @@
 ##  How to Run the Project Locally
 
 ```bash
-npm i --legacy-peer
+npm i 
 npm run dev
 ```
 

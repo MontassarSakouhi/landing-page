@@ -1,48 +1,51 @@
-"use client"
+"use client";
 
-import { Building2, Globe, Shield } from "lucide-react"
-import { motion, type PanInfo } from "framer-motion"
-import { useState } from "react"
+import { Building2, Globe, Shield } from "lucide-react";
+import { motion, type PanInfo } from "framer-motion";
+import { useState } from "react";
 
 const strategicValueCards = [
   {
     icon: Building2,
     title: "Build Ecosystem",
-    description: "Foster partnerships and integrations that enhance product offerings and complement our ecosystem.",
+    description:
+      "Foster partnerships and integrations that enhance product offerings and complement our ecosystem.",
     color: "teal",
   },
   {
     icon: Globe,
     title: "Explore New Products and Markets",
     description:
-      "Enhance NEO's product and service offerings to serve evolving customer needs and gain a foothold in emergent spaces.",
+      "Enhance NEO Bank’s product and service offerings to serve evolving customer needs and gain a foothold in emergent spaces.",
     color: "emerald",
   },
   {
     icon: Shield,
     title: "Minimize the Risk of Disruption",
     description:
-      "Invest in future-defining technologies to stay ahead of market disruption and maintain competitive advantage.",
+      "Invest in future-defining technologies to protect core business from disruptive models.",
     color: "cyan",
   },
-]
+];
 
 export function StrategicValue() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleDragEnd = (event: any, info: PanInfo) => {
-    const offset = info.offset.x
-    const velocity = info.velocity.x
+    const offset = info.offset.x;
+    const velocity = info.velocity.x;
 
     if (offset > 100 || velocity > 500) {
-      setCurrentSlide((prev) => Math.max(0, prev - 1))
+      setCurrentSlide((prev) => Math.max(0, prev - 1));
     } else if (offset < -100 || velocity < -500) {
-      setCurrentSlide((prev) => Math.min(strategicValueCards.length - 1, prev + 1))
+      setCurrentSlide((prev) =>
+        Math.min(strategicValueCards.length - 1, prev + 1),
+      );
     }
-  }
+  };
 
   return (
-    <section className="relative z-10 py-20 px-6 bg-white">
+    <section className="relative z-10 py-20 px-6 bg-[#0C3A43]/10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -52,7 +55,7 @@ export function StrategicValue() {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -62,160 +65,96 @@ export function StrategicValue() {
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-md md:text-lg text-[#052E37] max-w-md mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            NEO Ventures is more than capital, it's a strategic investor fueling your growth story and success
+            NEOVentures is more than capital, it's a strategic investor fueling
+            your growth story and success{" "}
           </motion.p>
         </motion.div>
 
-        <div className="hidden md:grid md:grid-cols-3 gap-8 lg:gap-12">
-          {strategicValueCards.map((card, index) => {
-            const Icon = card.icon
-            return (
-              <motion.div
-                key={index}
-                className="group relative"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.2, duration: 0.8 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
+        <div className="hidden md:grid [grid-template-columns:repeat(3,260px)] gap-2 lg:gap-10 place-items-center justify-center">
+          {strategicValueCards.map((card, index) => (
+            <motion.div
+              key={index}
+              className={
+                "relative overflow-hidden w-[260px] h-[300px] bg-[url('/cards-bg.png')] bg-cover bg-center rounded-xl cursor-pointer"
+              }
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,_rgba(5,46,55,0.85)_0%,_#18595E_100%)]  " />
+
+              <div
+                className={
+                  "relative z-10 h-full flex flex-col justify-between p-5 text-white"
+                }
               >
-                <div className="relative bg-white border border-slate-200 rounded-3xl p-8 h-full shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                  <motion.div
-                    className={`absolute inset-0 bg-gradient-to-br from-${card.color}-50 to-transparent opacity-0 group-hover:opacity-100`}
-                    transition={{ duration: 0.3 }}
-                  />
-
-                  <motion.div
-                    className="text-center mb-8"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div
-                      className={`w-20 h-20 bg-${card.color}-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-${card.color}-200 transition-colors duration-300`}
-                    >
-                      <motion.div
-                        animate={{
-                          rotate: index === 1 ? [0, 360] : 0,
-                          scale: [1, 1.1, 1],
-                        }}
-                        transition={{
-                          rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                          scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-                        }}
-                      >
-                        <Icon className={`w-10 h-10 text-${card.color}-600 group-hover:text-white transition-colors duration-300`} />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-
-                  <div className="text-center relative z-10">
-                    <motion.h3
-                      className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-white transition-colors duration-300"
-                      initial={{ opacity: 0.8 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
-                      viewport={{ once: true }}
-                    >
-                      {card.title}
-                    </motion.h3>
-
-                    <motion.p
-                      className="text-slate-600 leading-relaxed group-hover:text-white transition-colors duration-300"
-                      initial={{ opacity: 0.8 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
-                      viewport={{ once: true }}
-                    >
-                      {card.description}
-                    </motion.p>
-                  </div>
-
-                  <motion.div
-                    className={`absolute -top-4 -right-4 w-16 h-16 bg-${card.color}-100/50 rounded-full blur-xl`}
-                    animate={{
-                      scale: [1, 1.3, 1],
-                      opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{
-                      duration: 3 + index,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
-                      delay: index * 0.5,
-                    }}
-                  />
-
-                  <motion.div
-                    className={`absolute -bottom-4 -left-4 w-12 h-12 bg-${card.color}-200/30 rounded-full blur-lg`}
-                    animate={{
-                      scale: [1, 1.2, 1],
-                      opacity: [0.2, 0.5, 0.2],
-                    }}
-                    transition={{
-                      duration: 4 + index,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
-                      delay: index * 0.7,
-                    }}
-                  />
-                </div>
-              </motion.div>
-            )
-          })}
+                <h1 className={"text-3xl font-semibold"}>{card.title}</h1>
+                <p className={"text-sm opacity-90"}>{card.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="md:hidden relative">
+        <div className="md:hidden relative overflow-hidden">
           <motion.div
             className="flex"
             drag="x"
-            dragConstraints={{ left: -(strategicValueCards.length - 1) * 300, right: 0 }}
+            dragConstraints={{
+              left: -(strategicValueCards.length - 1) * 324,
+              right: 0,
+            }}
             onDragEnd={handleDragEnd}
-            animate={{ x: -currentSlide * 300 }}
+            animate={{ x: -currentSlide * 324 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {strategicValueCards.map((card, index) => {
-              const Icon = card.icon
+              const Icon = card.icon;
               return (
                 <motion.div
                   key={index}
-                  className="min-w-[300px] px-4"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="min-w-[300px] px-3 shrink-0 flex justify-center"
+                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    delay: index * 0.12,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-lg h-full">
-                    <div className="text-center mb-6">
-                      <div
-                        className={`w-16 h-16 bg-${card.color}-100 rounded-2xl flex items-center justify-center mx-auto mb-4`}
-                      >
-                        <motion.div
-                          animate={{
-                            rotate: index === 1 ? [0, 360] : 0,
-                            scale: [1, 1.1, 1],
-                          }}
-                          transition={{
-                            rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                            scale: { duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
-                          }}
-                        >
-                          <Icon className={`w-8 h-8 text-${card.color}-600`} />
-                        </motion.div>
-                      </div>
+                  <motion.div className="relative overflow-hidden w-[260px] h-[300px] bg-[url('/cards-bg.png')] bg-cover bg-center rounded-xl mx-auto">
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(5, 46, 55, 0.85) 0%, #18595E 100%)",
+                      }}
+                    />
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(5, 46, 55, 0.85) 0%, #18595E 100%)",
+                      }}
+                    />
+                    <div className="relative z-10 h-full flex flex-col justify-between p-5 text-white">
+                      <h1 className="text-2xl font-semibold">{card.title}</h1>
+                      <p className="text-sm opacity-90">{card.description}</p>
                     </div>
-
-                    <div className="text-center">
-                      <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
-                      <p className="text-slate-600 leading-relaxed text-sm">{card.description}</p>
-                    </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
-              )
+              );
             })}
           </motion.div>
 
@@ -285,5 +224,5 @@ export function StrategicValue() {
         }}
       />
     </section>
-  )
+  );
 }

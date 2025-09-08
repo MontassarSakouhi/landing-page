@@ -16,7 +16,7 @@ const strategicValueCards = [
     icon: Globe,
     title: "Explore New Products and Markets",
     description:
-      "Enhance NEO Bank’s product and service offerings to serve evolving customer needs and gain a foothold in emergent spaces.",
+      "Enhance NEO Bank's product and service offerings to serve evolving customer needs and gain a foothold in emergent spaces.",
     color: "emerald",
   },
   {
@@ -45,7 +45,10 @@ export function StrategicValue() {
   };
 
   return (
-    <section className="relative z-10 py-20 px-6 bg-[#0C3A43]/10">
+    <section
+      id="ourvision"
+      className="relative scroll-mt-24 z-10 py-20 px-6 bg-[#0C3A43]/10"
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -72,7 +75,7 @@ export function StrategicValue() {
             viewport={{ once: true }}
           >
             NEOVentures is more than capital, it's a strategic investor fueling
-            your growth story and success{" "}
+            your growth story and success
           </motion.p>
         </motion.div>
 
@@ -80,9 +83,7 @@ export function StrategicValue() {
           {strategicValueCards.map((card, index) => (
             <motion.div
               key={index}
-              className={
-                "relative overflow-hidden w-[260px] h-[300px] bg-[url('/cards-bg.png')] bg-cover bg-center rounded-xl cursor-pointer"
-              }
+              className="group relative overflow-hidden w-full max-w-[260px] h-[300px] bg-[url('/cards-bg.png')] bg-cover bg-center rounded-xl cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -92,15 +93,11 @@ export function StrategicValue() {
                 ease: "easeOut",
               }}
             >
-              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,_rgba(5,46,55,0.85)_0%,_#18595E_100%)]  " />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,46,55,0.85)_0%,#18595E_100%)] group-hover:bg-[linear-gradient(180deg,rgba(24,89,94,0.87)_0%,#052E37_100%)] transition-all duration-1500 ease-in-out" />
 
-              <div
-                className={
-                  "relative z-10 h-full flex flex-col justify-between p-5 text-white"
-                }
-              >
-                <h1 className={"text-3xl font-semibold"}>{card.title}</h1>
-                <p className={"text-sm opacity-90"}>{card.description}</p>
+              <div className="relative z-10 h-full flex flex-col justify-between p-5 text-white">
+                <h1 className="text-3xl font-semibold">{card.title}</h1>
+                <p className="text-sm opacity-90">{card.description}</p>
               </div>
             </motion.div>
           ))}
@@ -111,11 +108,11 @@ export function StrategicValue() {
             className="flex"
             drag="x"
             dragConstraints={{
-              left: -(strategicValueCards.length - 1) * 324,
+              left: -(strategicValueCards.length - 1) * 306,
               right: 0,
             }}
             onDragEnd={handleDragEnd}
-            animate={{ x: -currentSlide * 324 }}
+            animate={{ x: -currentSlide * 306 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {strategicValueCards.map((card, index) => {
@@ -134,20 +131,7 @@ export function StrategicValue() {
                   viewport={{ once: true }}
                 >
                   <motion.div className="relative overflow-hidden w-[260px] h-[300px] bg-[url('/cards-bg.png')] bg-cover bg-center rounded-xl mx-auto">
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(5, 46, 55, 0.85) 0%, #18595E 100%)",
-                      }}
-                    />
-                    <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(5, 46, 55, 0.85) 0%, #18595E 100%)",
-                      }}
-                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,46,55,0.85)_0%,#18595E_100%)]" />
                     <div className="relative z-10 h-full flex flex-col justify-between p-5 text-white">
                       <h1 className="text-2xl font-semibold">{card.title}</h1>
                       <p className="text-sm opacity-90">{card.description}</p>

@@ -8,27 +8,27 @@ import Image from "next/image";
 const keyCharacteristics = [
   {
     icon: Siren,
-    title: "Investment Focus",
+    title: "Early-stage focus",
     description:
-      "NEO Ventures is positioned in the intersection of FinTech and Lifestyle - the frontier of innovation.",
+      "We invest at the earliest stages (Pre-Seed to Series A) to fuel innovation where it matters most - bringing your idea to product-fit and growth.",
   },
   {
     icon: Bot,
     title: "Digital & tech-driven",
     description:
-      "Our investments are centered on scalable technologies that enable smarter, faster, and more connected solutions.\n",
+      "Our investments are centered on scalable technologies that enable smarter, faster, and more connected solutions.",
   },
   {
     icon: HandCoins,
     title: "Dual industry focus: Fintech & Lifestyle",
     description:
-      "NEO Ventures is positioned in the intersection of FinTech and Lifestyle - the frontier of innovation.",
+      "We target disruptive ventures in finance and lifestyle, where digital innovation transforms everyday experiences.",
   },
   {
     icon: Users,
     title: "Local and global impact",
     description:
-      "NEO Ventures is positioned in the intersection of FinTech and Lifestyle - the frontier of innovation.",
+      "We support startups that make an impact - either locally in Saudi Arabia or internationally - while scaling to shape the digital future.",
   },
 ];
 
@@ -38,6 +38,7 @@ export function InvestmentFocus() {
   return (
     <div className={" bg-[#0C3A43]/10"}>
       <section
+        id={"investmentfocus"}
         className="relative z-10 py-20 px-6 md:mx-14 rounded-xl"
         style={{ backgroundColor: "#0c3a43" }}
       >
@@ -152,85 +153,89 @@ export function InvestmentFocus() {
             >
               Key characteristics of target investments
             </motion.h3>
+            <div className={"flex w-full justify-center"}>
+              <div className=" hidden md:grid md:[grid-template-columns:repeat(2,330px)] lg:[grid-template-columns:repeat(2,450px)] xl:[grid-template-columns:repeat(2,500px)] gap-2 xl:gap-8 place-items-center justify-center mx-[500px]">
+                {keyCharacteristics.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      className="group relative"
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.2 + index * 0.2, duration: 0.8 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -5 }}
+                    >
+                      <div className="relative bg-transparent border-[1px] border-[#00FFEA] rounded-2xl p-4 h-[170px] md:w-[320px] lg:w-[450px] xl:w-full   hover:border-[#00FFEA] transition-all duration-300 overflow-hidden backdrop-blur-sm">
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100"
+                          transition={{ duration: 0.3 }}
+                        />
 
-            <div className="hidden md:grid [grid-template-columns:repeat(2,500px)] gap-8 place-items-center justify-center mx-[500px]">
-              {keyCharacteristics.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    className="group relative"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2 + index * 0.2, duration: 0.8 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -5 }}
-                  >
-                    <div className="relative bg-transparent border-[1px] border-[#00FFEA] rounded-2xl p-4 h-[150px]  hover:border-[#00FFEA] transition-all duration-300 overflow-hidden backdrop-blur-sm">
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100"
-                        transition={{ duration: 0.3 }}
-                      />
+                        <motion.div
+                          className="flex items-start flex-col "
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <div className="w-12 h-12  rounded-full flex items-center justify-center mr-4">
+                            <motion.div
+                              animate={{
+                                rotate: index === 1 ? [0, 360] : 0,
+                                scale: [1, 1.1, 1],
+                              }}
+                              transition={{
+                                rotate: {
+                                  duration: 20,
+                                  repeat: Number.POSITIVE_INFINITY,
+                                  ease: "linear",
+                                },
+                                scale: {
+                                  duration: 3,
+                                  repeat: Number.POSITIVE_INFINITY,
+                                  ease: "easeInOut",
+                                },
+                              }}
+                            >
+                              <Icon className="w-8 h-8 text-[#00FFEA]" />
+                            </motion.div>
+                          </div>
+                          <h4 className=" md:text-md lg:text-lg xl:text-xl font-bold text-white ">
+                            {item.title}
+                          </h4>
+                        </motion.div>
 
-                      <motion.div
-                        className="flex items-start flex-col "
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        <div className="w-12 h-12  rounded-full flex items-center justify-center mr-4">
-                          <motion.div
-                            animate={{
-                              rotate: index === 1 ? [0, 360] : 0,
-                              scale: [1, 1.1, 1],
-                            }}
-                            transition={{
-                              rotate: {
-                                duration: 20,
-                                repeat: Number.POSITIVE_INFINITY,
-                                ease: "linear",
-                              },
-                              scale: {
-                                duration: 3,
-                                repeat: Number.POSITIVE_INFINITY,
-                                ease: "easeInOut",
-                              },
-                            }}
-                          >
-                            <Icon className="w-8 h-8 text-[#00FFEA]" />
-                          </motion.div>
-                        </div>
-                        <h4 className="text-xl font-bold text-white ">
-                          {item.title}
-                        </h4>
-                      </motion.div>
+                        <motion.p
+                          className=" relative z-10 font-light md:text-[12px] lg:text-[13px] xl:text-[15px] "
+                          initial={{ opacity: 0.8 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{
+                            delay: 1.4 + index * 0.1,
+                            duration: 0.6,
+                          }}
+                          viewport={{ once: true }}
+                        >
+                          {item.description}
+                        </motion.p>
 
-                      <motion.p
-                        className=" relative z-10 font-light text-[15px]"
-                        initial={{ opacity: 0.8 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 1.4 + index * 0.1, duration: 0.6 }}
-                        viewport={{ once: true }}
-                      >
-                        {item.description}
-                      </motion.p>
-
-                      <motion.div
-                        className="absolute -bottom-4 -right-4 w-16 h-16 bg-teal-400/5 rounded-full blur-xl"
-                        animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.3, 0.6, 0.3],
-                        }}
-                        transition={{
-                          duration: 4 + index,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "easeInOut",
-                          delay: index * 0.5,
-                        }}
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
+                        <motion.div
+                          className="absolute -bottom-4 -right-4 w-16 h-16 bg-teal-400/5 rounded-full blur-xl"
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [0.3, 0.6, 0.3],
+                          }}
+                          transition={{
+                            duration: 4 + index,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut",
+                            delay: index * 0.5,
+                          }}
+                        />
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="md:hidden relative">
@@ -295,7 +300,9 @@ export function InvestmentFocus() {
                   <motion.button
                     key={index}
                     className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                      currentSlide === index ? "bg-[#00FFEA]" : "bg-[#00FFEA]/20"
+                      currentSlide === index
+                        ? "bg-[#00FFEA]"
+                        : "bg-[#00FFEA]/20"
                     }`}
                     onClick={() => setCurrentSlide(index)}
                     whileHover={{ scale: 1.2 }}

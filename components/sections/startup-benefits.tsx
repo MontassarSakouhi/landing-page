@@ -93,7 +93,7 @@ export function StartupBenefits() {
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
               >
-                <div className="relative bg-white border-[1px] border-[#052E37] rounded-xl p-6 h-full  hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="group relative bg-white border-[1px] border-[#052E37] rounded-xl p-6 h-full hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br from-${card.color}-50/50 to-transparent opacity-0 group-hover:opacity-100`}
                     transition={{ duration: 0.3 }}
@@ -101,7 +101,7 @@ export function StartupBenefits() {
 
                   <div className="relative z-10">
                     <motion.h3
-                      className="text-xl font-bold text-[#052E37] mb-3  transition-colors duration-300"
+                      className="text-xl font-bold text-[#052E37] mb-3 group-hover:text-[#0097B7] transition-colors duration-300"
                       initial={{ opacity: 0.8 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
@@ -111,7 +111,7 @@ export function StartupBenefits() {
                     </motion.h3>
 
                     <motion.p
-                      className="text-slate-600 leading-relaxed text-sm  transition-colors duration-300"
+                      className="text-slate-600 leading-relaxed text-sm transition-colors duration-300"
                       initial={{ opacity: 0.8 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
@@ -148,7 +148,7 @@ export function StartupBenefits() {
                       delay: index * 0.4,
                     }}
                   />
-                </div>
+                </div>{" "}
               </motion.div>
             );
           })}

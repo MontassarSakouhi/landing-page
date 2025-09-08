@@ -2,7 +2,10 @@
 
 export function PitchDeck() {
   return (
-    <section className="relative z-10 py-8 md:py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#F3F4F8]">
+    <section
+      id={"contactus"}
+      className="relative scroll-mt-10 z-10 py-8 md:py-12 lg:py-20 px-4 sm:px-6 lg:px-8 bg-[#F3F4F8]"
+    >
       <div className="max-w-7xl w-full mx-auto relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center">
         <video
           className="absolute inset-0 w-full h-full object-cover -z-10 rounded-[12px] sm:rounded-[16px] lg:rounded-[20px]"

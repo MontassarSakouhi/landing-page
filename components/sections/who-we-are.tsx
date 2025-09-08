@@ -4,29 +4,26 @@ import Image from "next/image";
 
 const cards = [
   {
-    icon: <Eye size={48} />,
-    header: "Investing in Possibility. Building What’s Next.",
-    text:
-      "NEO Ventures (NEOV) is the strategic investment arm of The Saudi National Bank (SNB), purpose-built to drive innovation at the intersection of technology," +
-      " finance, and lifestyle. We invest in bold ideas, back visionary founders, and build partnerships that expand the digital frontier.",
+    icon: <Eye size={48} strokeWidth={1} />,
+    header: "Oun Vision",
+    text: "To be a leading strategic investor vehicle that drives innovation, builds a robust digital ecosystem, and explores new frontiers in products and markets, ultimately enhancing SNB's offerings and market position.",
   },
   {
-    icon: <Rocket size={48} />,
-    header: "Investing in Possibility. Building What’s Next.",
-    text:
-      "NEO Ventures (NEOV) is the strategic investment arm of The Saudi National Bank (SNB), purpose-built to drive innovation at the intersection of technology," +
-      " finance, and lifestyle. We invest in bold ideas, back visionary founders, and build partnerships that expand the digital frontier.",
+    icon: <Rocket size={48} strokeWidth={1} />,
+    header: "Our Mission",
+    text: "To invest in early-stage digital startups within Fintech and Lifestyle sectors, fueled by advanced technologies, to accelerate innovation, complement core offerings, and grow our local and global presence in line with SNB's strategic choices.",
   },
 ];
 
 export function WhoWeAre() {
   return (
     <section
+      id={"aboutus"}
       style={{
         background:
-          "linear-gradient(80.41deg, rgba(5, 46, 55) 0%, rgba(12, 68, 74 ) 27.32%, rgba(19, 86, 90) 70.01%, rgba(39, 168, 168) 130.26%)",
+          "linear-gradient(80.41deg, rgba(5, 46, 55) 0%, rgba(12, 68, 74 ) 27.32%, rgba(19, 86, 90) 70.01%, rgba(39, 168, 168) 120.26%)",
       }}
-      className="flex flex-col gap-6    pb-6 py-10 sm:py-20 px-6 mx-auto"
+      className=" scroll-mt-24 flex flex-col gap-6    pb-6 py-10 sm:py-20 px-6 mx-auto"
     >
       <div className={"flex space-x-10 justify-center items-center"}>
         <div className={" sm:max-w-[33%] "}>
@@ -48,7 +45,7 @@ export function WhoWeAre() {
           </h1>
           <p
             className={
-              "text-[13px]  md:text-[10px] lg:text-[13px] xl:text-[15px] leading-[130%] align-middle font-light"
+              "text-[13px]  md:text-[10px] lg:text-[13px] xl:text-[15px] leading-[130%] align-middle font-light text-justify"
             }
           >
             NEO Ventures (NEOV) is the strategic investment arm of The Saudi
@@ -92,20 +89,11 @@ export function WhoWeAre() {
                 "font-bold  md:text-[25px] lg:text-[30px] xl:text-[36px] leading-[120%] mb-4"
               }
             >
-              {(() => {
-                const [first, ...rest] = card.header.split(". ");
-                return (
-                  <>
-                    {first}.
-                    <br />
-                    {rest.join(". ")}
-                  </>
-                );
-              })()}
+              {card.header}
             </h1>
             <p
               className={
-                " text-[12px] md:text-[10px] lg:text-[13px] xl:text-[15px] font-light"
+                " text-[12px] md:text-[10px] lg:text-[13px] xl:text-[15px] font-light text-justify"
               }
             >
               {card.text}

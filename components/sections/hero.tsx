@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
@@ -17,7 +17,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#052E37]/90 -z-10"></div>
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight space-y-6"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -31,7 +31,7 @@ export function Hero() {
             NEO Ventures:
           </motion.h1>
           <motion.h1
-            className="block bg-gradient-to-r from-teal-200 to-emerald-200 bg-clip-text text-transparent pb-2"
+            className="block bg-clip-text pb-2"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -41,7 +41,7 @@ export function Hero() {
         </motion.div>
 
         <motion.p
-          className="text-lg md:text-xl text-teal-100 mb-12 max-w-3xl mx-auto"
+          className="text-lg md:text-xl  mb-12 max-w-3xl mx-auto"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -67,5 +67,5 @@ export function Hero() {
         </motion.button>
       </div>
     </main>
-  )
+  );
 }

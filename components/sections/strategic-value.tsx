@@ -2,7 +2,7 @@
 
 import { Building2, Globe, Shield } from "lucide-react";
 import { motion, type PanInfo } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const strategicValueCards = [
   {
@@ -30,6 +30,16 @@ const strategicValueCards = [
 
 export function StrategicValue() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === strategicValueCards.length - 1 ? 0 : prev + 1,
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleDragEnd = (event: any, info: PanInfo) => {
     const offset = info.offset.x;
@@ -80,6 +90,7 @@ export function StrategicValue() {
         </motion.div>
 
         <div className="hidden md:grid [grid-template-columns:repeat(3,260px)] gap-2 lg:gap-10 place-items-center justify-center">
+          {" "}
           {strategicValueCards.map((card, index) => (
             <motion.div
               key={index}

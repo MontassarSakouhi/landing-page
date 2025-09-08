@@ -2,7 +2,7 @@
 
 import { Bot, HandCoins, Siren, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const keyCharacteristics = [
@@ -26,6 +26,7 @@ const keyCharacteristics = [
   },
   {
     icon: Users,
+
     title: "Local and global impact",
     description:
       "We support startups that make an impact - either locally in Saudi Arabia or internationally - while scaling to shape the digital future.",
@@ -35,10 +36,20 @@ const keyCharacteristics = [
 export function InvestmentFocus() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === keyCharacteristics.length - 1 ? 0 : prev + 1,
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className={" bg-[#0C3A43]/10"}>
+    <div className="bg-[#0C3A43]/10">
       <section
-        id={"investmentfocus"}
+        id="investmentfocus"
         className="relative z-10 py-20 px-6 md:mx-14 rounded-xl"
         style={{ backgroundColor: "#0c3a43" }}
       >
@@ -57,7 +68,7 @@ export function InvestmentFocus() {
               transition={{ delay: 0.2, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <span className=" text-3xl md:text-4xl lg:text-5xl ">
+              <span className="text-3xl md:text-4xl lg:text-5xl">
                 Investment Focus
               </span>
             </motion.h2>
@@ -153,8 +164,8 @@ export function InvestmentFocus() {
             >
               Key characteristics of target investments
             </motion.h3>
-            <div className={"flex w-full justify-center"}>
-              <div className=" hidden md:grid md:[grid-template-columns:repeat(2,330px)] lg:[grid-template-columns:repeat(2,450px)] xl:[grid-template-columns:repeat(2,500px)] gap-2 xl:gap-8 place-items-center justify-center mx-[500px]">
+            <div className="flex w-full justify-center">
+              <div className="hidden md:grid md:[grid-template-columns:repeat(2,330px)] lg:[grid-template-columns:repeat(2,450px)] xl:[grid-template-columns:repeat(2,500px)] gap-2 xl:gap-8 place-items-center justify-center mx-[500px]">
                 {keyCharacteristics.map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -167,18 +178,18 @@ export function InvestmentFocus() {
                       viewport={{ once: true }}
                       whileHover={{ y: -5 }}
                     >
-                      <div className="relative bg-transparent border-[1px] border-[#00FFEA] rounded-2xl p-4 h-[170px] md:w-[320px] lg:w-[450px] xl:w-full   hover:border-[#00FFEA] transition-all duration-300 overflow-hidden backdrop-blur-sm">
+                      <div className="relative bg-transparent border-[1px] border-[#00FFEA] rounded-2xl p-4 h-[170px] md:w-[320px] lg:w-[450px] xl:w-full hover:border-[#00FFEA] transition-all duration-300 overflow-hidden backdrop-blur-sm">
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100"
                           transition={{ duration: 0.3 }}
                         />
 
                         <motion.div
-                          className="flex items-start flex-col "
+                          className="flex items-start flex-col"
                           whileHover={{ scale: 1.05 }}
                           transition={{ type: "spring", stiffness: 300 }}
                         >
-                          <div className="w-12 h-12  rounded-full flex items-center justify-center mr-4">
+                          <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
                             <motion.div
                               animate={{
                                 rotate: index === 1 ? [0, 360] : 0,
@@ -200,13 +211,13 @@ export function InvestmentFocus() {
                               <Icon className="w-8 h-8 text-[#00FFEA]" />
                             </motion.div>
                           </div>
-                          <h4 className=" md:text-md lg:text-lg xl:text-xl font-bold text-white ">
+                          <h4 className="md:text-md lg:text-lg xl:text-xl font-bold text-white">
                             {item.title}
                           </h4>
                         </motion.div>
 
                         <motion.p
-                          className=" relative z-10 font-light md:text-[12px] lg:text-[13px] xl:text-[15px] "
+                          className="relative z-10 font-light md:text-[12px] lg:text-[13px] xl:text-[15px]"
                           initial={{ opacity: 0.8 }}
                           whileInView={{ opacity: 1 }}
                           transition={{

@@ -2,7 +2,7 @@
 
 import { Award, CreditCard, Settings, TrendingUp } from "lucide-react";
 import { motion, type PanInfo } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const benefitsCards = [
   {
@@ -37,6 +37,16 @@ const benefitsCards = [
 export function StartupBenefits() {
   const [benefitsSlide, setBenefitsSlide] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBenefitsSlide((prev) =>
+        prev === benefitsCards.length - 1 ? 0 : prev + 1,
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleBenefitsDragEnd = (event: any, info: PanInfo) => {
     const offset = info.offset.x;
     const velocity = info.velocity.x;
@@ -65,11 +75,11 @@ export function StartupBenefits() {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="block ">Driving Strategic Value</span>
+            <span className="block">Driving Strategic Value</span>
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-sm text-[#052E37]  max-w-[350px] mx-auto"
+            className="text-lg md:text-sm text-[#052E37] max-w-[350px] mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -148,7 +158,7 @@ export function StartupBenefits() {
                       delay: index * 0.4,
                     }}
                   />
-                </div>{" "}
+                </div>
               </motion.div>
             );
           })}
